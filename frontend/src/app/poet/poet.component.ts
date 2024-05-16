@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import {Component, OnInit} from '@angular/core';
 import {PoetAPIServiceService} from "../poet-apiservice.service";
 
 @Component({
@@ -10,7 +8,7 @@ import {PoetAPIServiceService} from "../poet-apiservice.service";
   templateUrl: './poet.component.html',
   styleUrl: './poet.component.css'
 })
-export class PoetComponent {
+export class PoetComponent implements OnInit{
   title = 'Poet API responses';
   authors: any;
   titles: any;
@@ -19,21 +17,14 @@ export class PoetComponent {
   }
 
   ngOnInit() {
-    this.service.getPoet('Ernest Dowson').subscribe({
-      // response: (response: any) => {
-      //   this.authors = response;
-      // },
-      error: (error: any) => {
-        console.log(error)
+    this.service.getPoetAndTitle('Shakespeare', 'Sonnet').subscribe({
+      next: (response: any) => {
+        this.authors = response[0].authors
+        this.titles = response[0].titles
       },
-    });
-      this.service.getTitle('Ozymandias').subscribe({
-        // response: (response: any) => {
-        //   this.authors = response;
-        // },
-        error: (error: any) => {
-          console.log(error)
-        },
+      error: (error: any) => {
+        console.error("An error occurred during the request", error)
+      },
     });
   }
 }

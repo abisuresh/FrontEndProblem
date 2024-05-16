@@ -14,13 +14,8 @@ export class PoetAPIServiceService {
       'Content-Type': 'application/json'
     })
   }
-  getPoet(poet: String) {
-    let url = "https://poetrydb.org/author/" + poet;
-    return this.http.get(url, this.httpOptions);
-  }
-
-  getTitle(title: String){
-    let url = "https://poetrydb.org/title/" + title;
+  getPoetAndTitle(poet: String, title: String) {
+    let url = "https://poetrydb.org/author,title/" + poet + ";" + title;
     return this.http.get(url, this.httpOptions);
   }
 }
