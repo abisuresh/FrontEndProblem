@@ -12,5 +12,7 @@ Using Angular if possible or javascript or typescript, complete the following an
 
 
 Tech stack: 
-* Express JS server 
-* 
+* Angular App
+
+Key notes: 
+* Created a Poet API service 
