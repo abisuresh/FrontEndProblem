@@ -19,8 +19,9 @@ export class PoetComponent implements OnInit{
   ngOnInit() {
     this.service.getPoetAndTitle('Shakespeare', 'Sonnet').subscribe({
       next: (response: any) => {
-        this.authors = response[0].authors
-        this.titles = response[0].titles
+        console.log(response[0])
+        this.authors = response[0].author
+        this.titles = response[0].title
       },
       error: (error: any) => {
         console.error("An error occurred during the request", error)
