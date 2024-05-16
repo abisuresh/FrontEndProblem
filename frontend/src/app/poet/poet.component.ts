@@ -13,6 +13,7 @@ import {PoetAPIServiceService} from "../poet-apiservice.service";
 export class PoetComponent {
   title = 'Poet API responses';
   authors: any;
+  titles: any;
 
   constructor(private service: PoetAPIServiceService) {
   }
@@ -25,7 +26,15 @@ export class PoetComponent {
       error: (error: any) => {
         console.log(error)
       },
-    })
+    });
+      this.service.getTitle('Ozymandias').subscribe({
+        // response: (response: any) => {
+        //   this.authors = response;
+        // },
+        error: (error: any) => {
+          console.log(error)
+        },
+    });
   }
 }
 
