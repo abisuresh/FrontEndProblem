@@ -1,5 +1,7 @@
 # FrontEndProblem
 
+## Original Problem: 
+
 The Poet
  
 
@@ -11,8 +13,8 @@ Using Angular if possible or javascript or typescript, complete the following an
 5. Be prepared to expand the functionality of your solution during the interview.
 
 
-Tech stack: 
+## Tech stack: 
 * Angular App
 
-Key notes: 
+## Key notes: 
 * Created a Poet API service 
