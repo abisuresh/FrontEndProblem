@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {PoetAPIServiceService} from "../poet-apiservice.service";
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-poet',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './poet.component.html',
   styleUrl: './poet.component.css'
 })
@@ -12,6 +13,9 @@ export class PoetComponent implements OnInit{
   title = 'Poet API responses';
   authors: any;
   titles: any;
+
+  author_val = new FormControl('');
+  title_val = new FormControl('');
 
   constructor(private service: PoetAPIServiceService) {
   }

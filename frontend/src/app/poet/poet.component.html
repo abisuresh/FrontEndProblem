@@ -16,8 +16,16 @@
     <div class="component-title">
       <h2>{{ title }}</h2>
     </div>
+    <div class="author_input">
+      <label for="author_val">Author: </label>
+      <input id="author_val" type="text" [formControl]="author_val">
+    </div>
+    <div class="title_input">
+      <label for="title_val">Title: </label>
+      <input id="title_val" type="text" [formControl]="title_val">
+    </div>
     <h3> Author: {{ authors }}</h3>
-    <h3> Title: {{ titles }}</h3>
+    <h3> Titles: {{ titles }}</h3>
   </div>
 
 </main>
