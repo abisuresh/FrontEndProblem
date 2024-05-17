@@ -3,6 +3,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 // import { HttpService } from '@angular/common/http.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import {CommonModule} from "@angular/common";
+import {PoetComponent} from "./poet/poet.component";
 
 @Component({
   selector: 'app-root',

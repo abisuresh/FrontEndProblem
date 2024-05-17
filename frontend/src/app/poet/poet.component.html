@@ -16,14 +16,18 @@
     <div class="component-title">
       <h2>{{ title }}</h2>
     </div>
-    <div class="author_input">
-      <label for="author_val">Author: </label>
-      <input id="author_val" type="text" [formControl]="author_val">
-    </div>
-    <div class="title_input">
-      <label for="title_val">Title: </label>
-      <input id="title_val" type="text" [formControl]="title_val">
-    </div>
+    <form [formGroup]="bookInputs" (ngSubmit)="onSubmit()">
+      <p>Input Author and Title values in form.</p>
+      <div class="book_input">
+        <label for="author_val">Author: </label>
+        <input id="author_val" type="text" [formControl]="author_val">
+      </div>
+      <div class="title_input">
+        <label for="title_val">Title: </label>
+        <input id="title_val" type="text" [formControl]="title_val">
+      </div>
+      <button type="submit" [disabled]="!bookInputs.valid">Submit</button>
+    </form>
     <h3> Author: {{ authors }}</h3>
     <h3> Titles: {{ titles }}</h3>
   </div>

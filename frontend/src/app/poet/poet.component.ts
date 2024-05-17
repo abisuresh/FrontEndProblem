@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PoetAPIServiceService} from "../poet-apiservice.service";
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-poet',
@@ -13,15 +13,23 @@ export class PoetComponent implements OnInit{
   title = 'Poet API responses';
   authors: any;
   titles: any;
+  author_val: any;
+  title_val: any;
 
-  author_val = new FormControl('');
-  title_val = new FormControl('');
+  bookInputs = new FormGroup({
+    author_val: new FormControl(''),
+    title_val: new FormControl(''),
+  });
+
+  onSubmit(){
+    console.warn(this.bookInputs.value);
+  }
 
   constructor(private service: PoetAPIServiceService) {
   }
 
   ngOnInit() {
-    this.service.getPoetAndTitle('Shakespeare', 'Sonnet').subscribe({
+    this.service.getPoetAndTitle(this.author_val, this.title_val).subscribe({
       next: (response: any) => {
         console.log(response[0])
         this.authors = response[0].author
@@ -32,5 +40,7 @@ export class PoetComponent implements OnInit{
       },
     });
   }
+
+  protected readonly onsubmit = onsubmit;
 }
 
