@@ -28,8 +28,18 @@
       </div>
       <button type="submit" [disabled]="!bookInputs.valid">Submit</button>
     </form>
-    <h3> Author: {{ authors }}</h3>
-    <h3> Titles: {{ titles }}</h3>
+    <h3> Author:    </h3>
+    <ul>
+      <li *ngFor="let elem of authors; let i = index">
+        {{ elem }}
+      </li>
+    </ul>
+    <h3> Titles: </h3>
+    <ul>
+      <li *ngFor="let elem of titles">
+        {{ elem }}
+      </li>
+    </ul>
   </div>
 
 </main>

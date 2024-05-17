@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {PoetAPIServiceService} from "../poet-apiservice.service";
 import {FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
 import {throwError} from "rxjs";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-poet',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, NgForOf],
   templateUrl: './poet.component.html',
   styleUrl: './poet.component.css',
   providers:[
@@ -19,8 +20,9 @@ import {throwError} from "rxjs";
 })
 export class PoetComponent {
   title = 'Poet API responses';
-  authors: [any] | undefined
-  titles: [any] | undefined;
+  authors: string[] = [];
+  titles: string[] = [];
+  poems: string[] = [];
   author_val: any;
   title_val: any;
 
@@ -43,8 +45,8 @@ export class PoetComponent {
         console.log("Response: ", response[0])
         response.forEach((elem: any) => {
           console.log("Element: ", elem)
-          this.authors = elem.author
-          this.titles = elem.title
+          this.authors.push(elem.author);
+          this.titles.push(elem.title);
         })
       },
       error: (error: any) => {
