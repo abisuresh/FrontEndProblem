@@ -13,9 +13,12 @@ Using Angular if possible or javascript or typescript, complete the following an
 
 
 ## Tech stack: 
-* Angular App
+* Angular App with Reactive Form
 
 ## Key notes: 
 * Created a Poet API service that makes the get call to the poetry api 
 * Added in a reactive form to get user input for what author and title they want to see 
 
+## Getting started:
+* Git clone repo https://github.com/abisuresh/FrontEndProblem
+* Use command to start app from within directory ``` ng serve --open```
