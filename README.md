@@ -3,7 +3,6 @@
 ## Original Problem: 
 
 The Poet
- 
 
 Using Angular if possible or javascript or typescript, complete the following and be ready to execute and explain your work during the interview:
 1. Review the  https://poetrydb.org/ api.
@@ -17,6 +16,6 @@ Using Angular if possible or javascript or typescript, complete the following an
 * Angular App
 
 ## Key notes: 
-* Created a Poet API service 
+* Created a Poet API service that makes the get call to the poetry api 
 * Added in a reactive form to get user input for what author and title they want to see 
 

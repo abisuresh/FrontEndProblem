@@ -19,8 +19,8 @@ import {throwError} from "rxjs";
 })
 export class PoetComponent {
   title = 'Poet API responses';
-  authors: any;
-  titles: any;
+  authors: [any] | undefined
+  titles: [any] | undefined;
   author_val: any;
   title_val: any;
 
@@ -34,10 +34,18 @@ export class PoetComponent {
   onSubmit(){
     console.warn("Checking form values: ", this.bookInputs.value);
     this.service.getPoetAndTitle(this.bookInputs.value['author_val'], this.bookInputs.value['title_val']).subscribe({
+      // next: (response: any) => {
+      //   console.log("Response: ", response[0])
+      //   this.authors = response[0].author
+      //   this.titles = response[0].title
+      // },
       next: (response: any) => {
-        console.log(response[0])
-        this.authors = response[0].author
-        this.titles = response[0].title
+        console.log("Response: ", response[0])
+        response.forEach((elem: any) => {
+          console.log("Element: ", elem)
+          this.authors = elem.author
+          this.titles = elem.title
+        })
       },
       error: (error: any) => {
         console.error("An error occurred during the request", error, error.status)
