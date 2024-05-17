@@ -10,12 +10,13 @@ export class PoetAPIServiceService {
   }
 
   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+    // headers: new HttpHeaders({
+    //   'Content-Type': 'application/json'
+    // })
   }
   getPoetAndTitle(poet: String, title: String) {
     let url = "https://poetrydb.org/author,title/" + poet + ";" + title;
+    // let url = "https://poetrydb.org/author/" + poet;
     return this.http.get(url, this.httpOptions);
   }
 }
