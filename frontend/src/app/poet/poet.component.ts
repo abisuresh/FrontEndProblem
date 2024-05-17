@@ -20,11 +20,7 @@ import {NgForOf} from "@angular/common";
 })
 export class PoetComponent {
   title = 'Poet API responses';
-  authors: string[] = [];
-  titles: string[] = [];
   poems: string[] = [];
-  author_val: any;
-  title_val: any;
 
   // instantiates form group for getting author and title from user
   bookInputs = new FormGroup({
@@ -33,7 +29,7 @@ export class PoetComponent {
   });
 
   // method that correlates to onSubmit method in poet component html
-  onSubmit(){
+  OnSubmit(){
     console.warn("Checking form values: ", this.bookInputs.value);
     this.service.getPoetAndTitle(this.bookInputs.value['author_val'], this.bookInputs.value['title_val']).subscribe({
       next: (response: any) => {
@@ -52,7 +48,5 @@ export class PoetComponent {
 
   constructor(private service: PoetAPIServiceService) {
   }
-
-  protected readonly onsubmit = onsubmit;
 }
 
