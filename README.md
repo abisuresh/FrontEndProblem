@@ -18,3 +18,5 @@ Using Angular if possible or javascript or typescript, complete the following an
 
 ## Key notes: 
 * Created a Poet API service 
+* Added in a reactive form to get user input for what author and title they want to see 
+

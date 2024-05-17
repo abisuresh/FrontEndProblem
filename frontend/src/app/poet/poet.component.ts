@@ -13,8 +13,6 @@ export class PoetComponent {
   title = 'Poet API responses';
   authors: any;
   titles: any;
-  author_val: any;
-  title_val: any;
 
   bookInputs = new FormGroup({
     author_val: new FormControl(''),
@@ -37,19 +35,6 @@ export class PoetComponent {
 
   constructor(private service: PoetAPIServiceService) {
   }
-
-  // ngOnInit() {
-  //   this.service.getPoetAndTitle(this.author_val, this.title_val).subscribe({
-  //     next: (response: any) => {
-  //       console.log(response[0])
-  //       this.authors = response[0].author
-  //       this.titles = response[0].title
-  //     },
-  //     error: (error: any) => {
-  //       console.error("An error occurred during the request", error)
-  //     },
-  //   });
-  // }
 
   protected readonly onsubmit = onsubmit;
 }

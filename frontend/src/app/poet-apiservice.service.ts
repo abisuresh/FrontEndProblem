@@ -16,7 +16,6 @@ export class PoetAPIServiceService {
   }
   getPoetAndTitle(poet: String, title: String) {
     let url = "https://poetrydb.org/author,title/" + poet + ";" + title;
-    // let url = "https://poetrydb.org/author/" + poet;
     return this.http.get(url, this.httpOptions);
   }
 }
