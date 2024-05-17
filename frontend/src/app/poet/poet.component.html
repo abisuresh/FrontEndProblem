@@ -1,3 +1,24 @@
-<h1>{{ title }}</h1>
-<h2> Authors: {{ authors }}</h2>
-<h2> Titles: {{ titles }}</h2>
+<style>
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+</style>
+
+<main class="main">
+  <div class="component">
+    <div class="component-title">
+      <h2>{{ title }}</h2>
+    </div>
+    <h3> Author: {{ authors }}</h3>
+    <h3> Title: {{ titles }}</h3>
+  </div>
+
+</main>
+
