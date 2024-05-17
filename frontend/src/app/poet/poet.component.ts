@@ -36,17 +36,11 @@ export class PoetComponent {
   onSubmit(){
     console.warn("Checking form values: ", this.bookInputs.value);
     this.service.getPoetAndTitle(this.bookInputs.value['author_val'], this.bookInputs.value['title_val']).subscribe({
-      // next: (response: any) => {
-      //   console.log("Response: ", response[0])
-      //   this.authors = response[0].author
-      //   this.titles = response[0].title
-      // },
       next: (response: any) => {
         console.log("Response: ", response[0])
         response.forEach((elem: any) => {
           console.log("Element: ", elem)
-          this.authors.push(elem.author);
-          this.titles.push(elem.title);
+          this.poems.push(elem.author, elem.title);
         })
       },
       error: (error: any) => {

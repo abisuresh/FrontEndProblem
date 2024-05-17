@@ -28,15 +28,9 @@
       </div>
       <button type="submit" [disabled]="!bookInputs.valid">Submit</button>
     </form>
-    <h3> Author:    </h3>
+    <h3>Poems</h3>
     <ul>
-      <li *ngFor="let elem of authors; let i = index">
-        {{ elem }}
-      </li>
-    </ul>
-    <h3> Titles: </h3>
-    <ul>
-      <li *ngFor="let elem of titles">
+      <li *ngFor="let elem of poems">
         {{ elem }}
       </li>
     </ul>
