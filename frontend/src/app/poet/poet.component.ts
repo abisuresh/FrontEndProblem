@@ -9,7 +9,7 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular
   templateUrl: './poet.component.html',
   styleUrl: './poet.component.css'
 })
-export class PoetComponent implements OnInit{
+export class PoetComponent {
   title = 'Poet API responses';
   authors: any;
   titles: any;
@@ -23,22 +23,6 @@ export class PoetComponent implements OnInit{
 
   onSubmit(){
     console.warn(this.bookInputs.value);
-    // this.service.getPoetAndTitle('Shakespeare', 'Sonnet').subscribe({
-    //   next: (response: any) => {
-    //     console.log(response[0])
-    //     this.authors = response[0].author
-    //     this.titles = response[0].title
-    //   },
-    //   error: (error: any) => {
-    //     console.error("An error occurred during the request", error)
-    //   },
-    // });
-  }
-
-  constructor(private service: PoetAPIServiceService) {
-  }
-
-  ngOnInit() {
     this.service.getPoetAndTitle('Shakespeare', 'Sonnet').subscribe({
       next: (response: any) => {
         console.log(response[0])
@@ -50,6 +34,22 @@ export class PoetComponent implements OnInit{
       },
     });
   }
+
+  constructor(private service: PoetAPIServiceService) {
+  }
+
+  // ngOnInit() {
+  //   this.service.getPoetAndTitle(this.author_val, this.title_val).subscribe({
+  //     next: (response: any) => {
+  //       console.log(response[0])
+  //       this.authors = response[0].author
+  //       this.titles = response[0].title
+  //     },
+  //     error: (error: any) => {
+  //       console.error("An error occurred during the request", error)
+  //     },
+  //   });
+  // }
 
   protected readonly onsubmit = onsubmit;
 }
